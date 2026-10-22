@@ -1,0 +1,103 @@
+=====================================================================
+NYKAA MARKETING CAMPAIGN PERFORMANCE ANALYSIS
+End-to-End Data Analysis Project  |  Python + SQL + Power BI
+=====================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+Nykaa runs thousands of marketing campaigns across Email, SEO, Paid Ads,
+Social Media and Influencer marketing, targeting different customer groups
+in multiple languages. With 55,000+ campaigns, it is unclear which campaigns
+generate profit, which lose money, and where the marketing budget should be
+spent.
+
+2. OBJECTIVE
+------------
+Analyse campaign performance (revenue, cost, ROI, funnel and engagement) to
+find what drives profit and give data-backed recommendations to optimise the
+marketing budget.
+
+3. BUSINESS QUESTIONS
+---------------------
+1. What are the overall revenue, cost, profit and ROI?
+2. Which campaign type, channel, language and target audience perform best?
+3. Where do customers drop off in the funnel
+   (Impressions -> Clicks -> Leads -> Conversions)?
+4. How many campaigns are loss-making and what causes the losses?
+5. How do revenue and profit trend month by month?
+6. Does correct audience targeting or using multiple channels improve results?
+
+4. DATASET
+----------
+File   : nykaa_campaign_data.csv
+Size   : 55,555 rows x 16 columns
+Period : July 2024 - June 2025 (June 2025 is a partial month, ends 24 June)
+
+Column               Meaning
+-------------------  -------------------------------------------------------
+Campaign_ID          Unique campaign ID
+Campaign_Type        Email, SEO, Paid Ads, Social Media, Influencer
+Target_Audience      College Students, Youth, Working Women, Premium Shoppers,
+                     Tier 2 City Customers
+Customer_Segment     Same 5 groups as above (actual segment reached)
+Duration             Campaign length in days (5 to 30)
+Channel_Used         One or more of Google, WhatsApp, YouTube, Instagram,
+                     Email, Facebook
+Impressions          Times the ad was shown
+Clicks               Clicks received
+Leads                Leads generated
+Conversions          Customers who bought
+Revenue              Revenue generated
+Acquisition_Cost     Cost per ONE conversion (CAC)
+ROI                  (Revenue - Total Cost) / Total Cost
+Language             Hindi, English, Tamil, Bengali
+Engagement_Score     Audience engagement score
+Date                 Campaign date (dd-mm-yyyy)
+
+5. TOOLS USED
+-------------
+Python (pandas) : data cleaning and feature engineering
+SQL (MySQL)     : business analysis queries
+Power BI (DAX)  : interactive dashboard
+
+6. PROJECT STEPS
+----------------
+Step 1: Understand the data and write the problem statement   (this file)
+Step 2: Clean the data in Python       (file 2_data_cleaning_python.txt)
+Step 3: Analyse using SQL              (file 3_sql_queries.txt)
+Step 4: Build dashboard in Power BI    (files 4_dax_measures.txt and
+                                        5_powerbi_dashboard_steps.txt)
+Step 5: Write insights and recommendations (below)
+
+7. KEY INSIGHTS
+---------------
+1. Overall: Revenue about Rs 2,866 Cr, cost about Rs 970 Cr, profit about
+   Rs 1,896 Cr, overall ROI about 1.95.
+2. 24% of campaigns (13,220) are loss-making (ROI below 0).
+3. Acquisition cost (CAC) is the BIGGEST driver of ROI.
+   Lowest 25% CAC campaigns: average ROI about 8.0
+   Highest 25% CAC campaigns: average ROI about -0.32 (loss)
+4. Campaign type, channel, language and audience all show very similar ROI
+   (about 2.7), so none of them is a clear winner alone.
+5. Only about 20% of campaigns have Target_Audience = Customer_Segment, and ROI
+   is almost the same for match (2.75) and mismatch (2.70). Current targeting
+   shows little effect.
+6. Revenue is stable month to month (about Rs 250-260 Cr). June 2025 is an
+   incomplete month.
+
+8. RECOMMENDATIONS
+------------------
+1. Set a CAC cap: pause or rework campaigns whose acquisition cost is in the
+   highest quartile (above about Rs 428 per conversion), they mostly lose money.
+2. Shift budget to low-CAC campaigns and replicate their setup.
+3. Review audience targeting: alignment does not currently improve ROI, so test
+   sharper segmentation.
+4. Run A/B tests on channel and language instead of assuming one is better.
+5. Track CAC weekly on the dashboard to catch loss-making campaigns early.
+
+9. LIMITATIONS
+--------------
+- June 2025 is a partial month, so the latest trend point is understated.
+- Currency assumed to be INR.
+- Campaign type, channel and language show very little variation, so the
+  conclusions focus on CAC.
